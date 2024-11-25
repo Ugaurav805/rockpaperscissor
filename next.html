@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Over</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        margin: 10px;
+        font-family: "Roboto", sans-serif;
+        background-color: rgba(137, 193, 94, 1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+      .img{
+       align-items: center;
+      }
+      .new-game {
+        margin-top: 25px;
+       width: 174px;
+       height: 44px;
+       top: 639px;
+       left: 581px;
+       border-radius: 9px;
+       background-color: rgba(255, 255, 255, 1);
+       cursor: pointer;
+       font: "roboto";
+       font-weight: 600;
+       size: 15px;
+       line-height: 17.58px;
+
+      }
+      #rulesButton {
+        position: absolute;
+        width: 122px;
+        height: 45px;
+        top: 623px;
+        left: 1265px;
+        border-radius: 13px;
+        border: 4px solid white;
+        background-color: rgba(137, 193, 94, 1);
+        font-weight: 600;
+        font-size: x-large;
+        color: white;
+      }
+      .popup {
+        display: none;
+        position: absolute;
+        top: 222px;
+        left: 1166px;
+        width: 303px;
+        height: 367px;
+        background-color: #004429;
+        border: 9px solid white;
+        border-radius: 8px;
+        z-index: 1000;
+      }
+      .popup-content {
+        padding: 20px;
+        border-radius: 18px;
+      }
+      .close-button {
+        color: #f50101;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .insidebox {
+        margin: 1em 0;
+        color: rgba(255, 255, 255, 1);
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 17.23px;
+        list-style: none;
+        padding: 0;
+      }
+      .insidebox li {
+        position: relative;
+        padding-left: 20px;
+      }
+      .insidebox li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 10px;
+        height: 10px;
+        background-color: #ffd600;
+        border-radius: 2px;
+      }
+      .Rule {
+        text-align: center;
+        color: rgba(255, 255, 255, 1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="img">
+      <img
+        src="img/Screenshot 2024-11-25 170555.png"
+        alt="you won match"
+        width="604px"
+        height="493px"
+      />
+    </div>
+    <div>
+      <button class="new-game" onclick="startNewGame()">PLAY AGAIN</button>
+      <button id="rulesButton">RULES</button>
+    </div>
+    <div id="rulesPopup" class="popup">
+      <div class="popup-content">
+        <span class="close-button" id="closeButton">&times;</span>
+        <h2 class="Rule">Game Rules</h2>
+        <ul class="insidebox">
+          <li>
+            Rock beats scissors, scissors beat paper, and paper beats rock.
+          </li>
+          <br />
+          <li>
+            Agree ahead of time whether you'll count off "rock, paper, scissors,
+            shoot" or just "rock, paper, scissors".
+          </li>
+          <br />
+          <li>
+            Use rock, paper, scissors to settle minor decisions or simply play
+            to pass the time.
+          </li>
+          <br />
+          <li>
+            If both players lay down the same hand, each player lays down
+            another hand.
+          </li>
+          <br />
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      function startNewGame() {
+        window.location.href = "rockpaper.html";
+      }
+      document.getElementById("rulesButton").onclick = function () {
+        document.getElementById("rulesPopup").style.display = "block";
+      };
+
+      document.getElementById("closeButton").onclick = function () {
+        document.getElementById("rulesPopup").style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        const popup = document.getElementById("rulesPopup");
+        if (event.target === popup) {
+          popup.style.display = "none";
+        }
+      };
+    </script>
+  </body>
+</html>
